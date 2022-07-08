@@ -1,27 +1,20 @@
 /*
 |--------------------------------------------------------------------------
-| Auth Route
+| Login Route
 |--------------------------------------------------------------------------
 |
 | [Method]  [Route]
-| POST      /api/auth
+| POST      /api/login
 | 
 */
 
 const express = require('express');
+const { loginAuth } = require('../Controllers/Login');
 const router = express.Router();
 
 // METHOD  : POST
-// ROUTE   : /api/auth
+// ROUTE   : /api/login
 // FUNCTION: Check 
-router.post('/', (req, res) => {
-  try {
-    console.log(req);
-    res.status(200).send({ status: '200', message: 'Login Success !' });
-  } catch (err) {
-    console.log('[ERROR]');
-    console.log(err.message);
-  }
-});
+router.post('/', loginAuth);
 
 module.exports = router;
